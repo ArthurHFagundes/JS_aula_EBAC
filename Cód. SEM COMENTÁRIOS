@@ -1,0 +1,32 @@
+////ARTHURHFAGUNDES////
+
+const form = document.getElementById('form-deposito');
+
+function validaNome(nomeCompleto) { 
+    const nomeComoArray = nomeCompleto.split(' '); 
+    return nomeComoArray.length >= 2; 
+}
+
+form.addEventListener('submit', function(e) {
+    let formValido = false; 
+    e.preventDefault(); 
+    
+    const nomeBeneficiario = document.getElementById('nome-beneficiario');
+    const numeroContaBeneficiario = document.getElementById('conta-deposito'); 
+    const valorDeposito = document.getElementById('valor-deposito');
+    const descricao = document.getElementById('descricao');
+    const mensagemSucesso = `O valor de R$${valorDeposito.value} para o cliente ${nomeBeneficiario.value} da conta ${numeroContaBeneficiario.value} foi depositado com sucesso!`
+
+    formValido = validaNome(nomeBeneficiario.value)
+    if (formValido) {
+        alert(mensagemSucesso);
+
+        nomeBeneficiario.value = ''; 
+        numeroContaBeneficiario.value = '';
+        valorDeposito.value = '';
+        descricao.value = '';
+        
+    } else {
+        alert("Insira o nome completo");
+    }
+})
