@@ -1,0 +1,42 @@
+////ARTHURHFAGUNDES////
+
+const form = document.getElementById('form-deposito'); // CRIA UMA CONSTANTE REFERENTE AO FORMULÁRIO E SEU ID
+
+
+function validaNome(nomeCompleto) { // CRIA UMA FUNÇÃO QUE RECEBE A STRING('nomeCompleto') ONDE NA CONSTANTE('nomeComoArray')
+    const nomeComoArray = nomeCompleto.split(' '); // É EQUIVALENTE AO PREENCHIMENTO('nomeCompleto') SEPARADO POR "ESPAÇO"
+    return nomeComoArray.length >= 2; // SENDO QUE A CONSTANTE('nomeComoArray') DEVE SER MAIOR OU IGUAL A 2
+}
+
+//* ▲ PARTE ONDE VALIDA OS VALORES INSERIDOS NO NOME SENDO QUE DEVE SER >2 VALORES
+//* ▼ PARTE ONDE AUTORIZA O DEPOSITO E ARMAZENA OS VALORES INSERIDOS
+
+form.addEventListener('submit', function(e) { // ADICIONA UM EVENTO(tipo 'submit') NO ELEMENTO FORMULÁRIO('form') ONDE, QUANDO SUBMETER OCORRE A FUNÇÃO DE EVENTO(e) 
+    let formValido = false; // ¹ AUTORIZAÇÃO SE INICIA EM FALSE
+    e.preventDefault(); // NO QUAL ESSE EVENTO(e) NÃO RECARREGA A PÁGINA
+    
+    //* ▼ PARTE ONDE AUTORIZA O DEPOSITO E ARMAZENA OS VALORES INSERIDOS
+    //* ▼ PARTE ONDE CRIA CONSTANTES DOS INPUTS ENQUANTO BUSCA NA PG. UM ELEMENTO CORRESPONDETE A ID('')
+    
+    const nomeBeneficiario = document.getElementById('nome-beneficiario'); // CRIA UMA CONSTANTE ("nomeBeneficiario") ENQUANTO BUSCA NA PÁGINA UM ELEMENTO COM A ID ('nome-beneficiario')
+    const numeroContaBeneficiario = document.getElementById('conta-deposito'); // ↗
+    const valorDeposito = document.getElementById('valor-deposito');
+    const descricao = document.getElementById('descricao');
+    const mensagemSucesso = `O valor de R$${valorDeposito.value} para o cliente ${nomeBeneficiario.value} da conta ${numeroContaBeneficiario.value} foi depositado com sucesso!`
+    
+    //* ▲ PARTE ONDE CRIA CONSTANTES DOS INPUTS ENQUANTO BUSCA NA PG. UM ELEMENTO CORRESPONDETE A ID('')
+    //* ▼ ¹ PARTE ONDE AUTORIZA O DEPOSITO BASEADO NA FUNÇÃO (validaNome)
+
+    formValido = validaNome(nomeBeneficiario.value)
+    if (formValido) {
+        alert(mensagemSucesso);
+
+        nomeBeneficiario.value = ''; // APÓS A VALIDAÇÃO(formValido) E AUTORIZAÇÃO, LIMPA OS CAMPOS DE PREENCHIMENTO
+        numeroContaBeneficiario.value = '';
+        valorDeposito.value = '';
+        descricao.value = '';
+        
+    } else {
+        alert("Insira o nome completo"); // CASO A VARIÁVEL formValido PERMANEÇA FALSA
+    }
+})
