@@ -6,7 +6,7 @@ function multiplicarDoisNumeros(primeiroNumero:number, segundoNumero:number): vo
 multiplicarDoisNumeros(10, 20);
 
 
-function saudacaoAhAlguem(nome:string) {
+function saudacaoAhAlguem(nome:string):string {
     return(`Olá ${nome}!`);
 }
 saudacaoAhAlguem("Matheus")
@@ -15,3 +15,4 @@ saudacaoAhAlguem("Matheus")
 
 console.log(multiplicarDoisNumeros)
 console.log(saudacaoAhAlguem)
+
