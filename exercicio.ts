@@ -1,19 +1,16 @@
-function multiplicarDoisNumeros(primeiroNumero:number, segundoNumero:number): void {
+function multiplicarDoisNumeros(primeiroNumero:number, segundoNumero:number) {
     const resultado = primeiroNumero * segundoNumero;
-    
-    console.log(`${primeiroNumero} X ${segundoNumero} = ${resultado}`)
+    return(`${primeiroNumero} X ${segundoNumero} = ${resultado}`)
 }
-multiplicarDoisNumeros(10, 20);
 
 
-function saudacaoAhAlguem(nome:string):void {
-    console.log(`Olá ${nome}!`);
+function saudacaoAhAlguem(nome:string):string {
+    return(`Olá ${nome}!`);
 }
-saudacaoAhAlguem("Matheus")
 
 
 
-console.log(multiplicarDoisNumeros)
-console.log(saudacaoAhAlguem)
+console.log(multiplicarDoisNumeros(10, 20))
+console.log(saudacaoAhAlguem("Matheus"))
 
 
