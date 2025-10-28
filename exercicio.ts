@@ -1,6 +1,7 @@
-function multiplicarDoisNumeros(primeiroNumero:number, segundoNumero:number) {
+function multiplicarDoisNumeros(primeiroNumero:number, segundoNumero:number):number {
     const resultado = primeiroNumero * segundoNumero;
-    return(`${primeiroNumero} X ${segundoNumero} = ${resultado}`)
+    // return resultado
+    return resultado
 }
 
 
@@ -12,5 +13,3 @@ function saudacaoAhAlguem(nome:string):string {
 
 console.log(multiplicarDoisNumeros(10, 20))
 console.log(saudacaoAhAlguem("Matheus"))
-
-
